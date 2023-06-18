@@ -1,17 +1,16 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    push:
+        branches: [ "master" ]
+    pull_request:
+        branches: [ "master" ]
 
 jobs:
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - run: echo $PAT | docker login ghcr.io --username gregoriB --password-stdin
-    - run: docker build . --file Dockerfile --tag todo-list-blazor-wasm:$(date +%s)
-    - run: docker push ghcr.io/gregoriB/todo-list-blazor-wasm:$(date +%s)
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - run: echo $PAT | docker login ghcr.io --username gregoriB --password-stdin
+            - run: docker build . --file Dockerfile --tag todo-list-blazor-wasm:$(date +%s)
+            - run: docker push ghcr.io/gregoriB/todo-list-blazor-wasm:$(date +%s)
