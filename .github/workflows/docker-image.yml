@@ -14,8 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Log into docker
+    - run: echo $PAT | docker login ghcr.io --username gregoriB --password-stdin
     - name: Build the Docker image
-    - run: |
-           echo $PAT | docker login ghcr.io --username gregoriB --password-stdin
-           docker build . --file Dockerfile --tag todo-list-blazor-wasm:$(date +%s)
-           docker push ghcr.io/gregoriB/todo-list-blazor-wasm:$(date +%s)
+    - run: docker build . --file Dockerfile --tag todo-list-blazor-wasm:$(date +%s)
+    - name: Push the image
+    - run: docker push ghcr.io/gregoriB/todo-list-blazor-wasm:$(date +%s)
