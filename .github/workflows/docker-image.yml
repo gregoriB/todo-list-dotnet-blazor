@@ -9,14 +9,9 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: Log into docker
     - run: echo $PAT | docker login ghcr.io --username gregoriB --password-stdin
-    - name: Build the Docker image
     - run: docker build . --file Dockerfile --tag todo-list-blazor-wasm:$(date +%s)
-    - name: Push the image
     - run: docker push ghcr.io/gregoriB/todo-list-blazor-wasm:$(date +%s)
