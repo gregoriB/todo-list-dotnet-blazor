@@ -3,6 +3,6 @@
         <img src="https://raw.githubusercontent.com/gregoriB/todo-list-dotnet-blazor/master/Shared/screenshot.png" alt="todo list"/>
     </div>
 
-Nothing worth checking out, just a todo list.  Why are you even here?
+Nothing worth checking out, just a todo list.  Why are you even here?  If you insist on wasting your time, [here's a live demo](http://18.118.16.192/todolist).
 
 </div>
